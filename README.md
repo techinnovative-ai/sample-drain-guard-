@@ -17,7 +17,9 @@ simulated demonstration data.
 | Impact | `/impact` |
 | Prototype (parts + roadmap) | `/prototype` |
 | Contact | `/contact` |
-| Sign In (demo auth) | `/login` |
+| Workspace chooser (government / municipal or private organisation) | `/login` |
+| Government & municipal demo sign-in (department code, password recovery preview, remembered/session-only demo session) | `/login/government` |
+| Private organisation demo sign-in (site code, password recovery preview, remembered/session-only demo session) | `/login/private` |
 | Privacy / Terms | `/privacy`, `/terms` |
 
 ### B. Monitoring application (demo mode)
@@ -44,9 +46,10 @@ npm run dev
 # open http://localhost:3000
 ```
 
-Sign in at `/login` — the Stage-1 prototype uses a simulated session
-(any credentials, or the read-only viewer button). Production replaces this
-with Supabase Auth and role-based accounts.
+Choose a workspace at `/login`, then use the demo credentials displayed on its
+sign-in page. Sessions are browser-only and do not authenticate production users;
+do not enter real credentials. Production requires a real identity provider and
+server-enforced role-based access before deployment.
 
 ## Design rules baked in
 

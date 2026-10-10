@@ -42,7 +42,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const raw = localStorage.getItem("dg-session");
+    const raw = localStorage.getItem("dg-session") ?? sessionStorage.getItem("dg-session");
     if (!raw) {
       router.replace("/login");
       return;
@@ -134,7 +134,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             Public site
           </Link>
           <button
-            onClick={() => { localStorage.removeItem("dg-session"); router.push("/login"); }}
+            onClick={() => { localStorage.removeItem("dg-session"); sessionStorage.removeItem("dg-session"); router.push("/login"); }}
             className="rounded-lg border border-neutral-grey px-3 py-1.5 text-xs font-semibold text-forest hover:bg-mist">
             Sign out
           </button>
