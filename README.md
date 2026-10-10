@@ -24,6 +24,7 @@ simulated demonstration data.
 | Page | Route |
 | --- | --- |
 | Overview dashboard (status cards, priority alerts, live chart, map, events, quick actions) | `/app/dashboard` |
+| **Live Unit control centre** — real prototype state (all Unknown until hardware connects), basket weight + overload thresholds, battery/solar, weather with source labels, manual installation coordinates on the map, 8-component health checklist, telemetry simulator with full overload-alert workflow | `/app/unit` |
 | Live Drain Map (Leaflet + OpenStreetMap, status markers, filters) | `/app/map` |
 | Drain Registry (search + filter) | `/app/drains` |
 | Drain detail (Live Monitoring · AI Assessment · History · Hardware tabs) | `/app/drains/DG-DEL-001` |

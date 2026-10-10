@@ -18,6 +18,18 @@ export default function DashboardPage() {
     <div className="space-y-5">
       <DemoBanner />
 
+      <Link href="/app/unit"
+        className="flex flex-wrap items-center gap-3 rounded-xl border border-neutral-grey bg-white px-4 py-3 shadow-sm transition-colors hover:border-tech">
+        <span aria-hidden className="flex h-9 w-9 items-center justify-center rounded-full bg-offline-bg text-offline">◉</span>
+        <div className="min-w-0 flex-1">
+          <p className="text-sm font-bold text-forest">Your physical prototype — DG-UNIT-000</p>
+          <p className="text-xs text-offline">
+            Not connected yet · basket weight, battery, weather and component health show as Unknown until the ESP32 reports.
+          </p>
+        </div>
+        <span className="text-xs font-bold text-tech">Open control centre →</span>
+      </Link>
+
       {/* Status cards */}
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
         <StatCard label="Registered drains" value={String(FLEET.registered)} caption="All registered units" />

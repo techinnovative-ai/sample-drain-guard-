@@ -2,7 +2,7 @@
 
 import {
   ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid,
-  BarChart, Bar, Legend, LineChart, Line, ComposedChart,
+  BarChart, Bar, Legend, LineChart, Line, ComposedChart, ReferenceLine,
 } from "recharts";
 import type { Point } from "@/lib/data";
 import { RAIN_EVENTS } from "@/lib/data";
@@ -47,6 +47,28 @@ export function Sparkline({ data, color = "#278567" }: { data: Point[]; color?: 
       <LineChart data={data}>
         <Line type="monotone" dataKey="level" stroke={color} strokeWidth={1.5} dot={false} />
       </LineChart>
+    </ResponsiveContainer>
+  );
+}
+
+export function WeightChart({ data, limit, height = 220 }: {
+  data: { t: string; kg: number }[]; limit: number; height?: number;
+}) {
+  return (
+    <ResponsiveContainer width="100%" height={height}>
+      <AreaChart data={data} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
+        <CartesianGrid {...grid} />
+        <XAxis dataKey="t" tick={axis} tickLine={false} minTickGap={40} />
+        <YAxis domain={[0, Math.ceil(limit * 1.2)]} tick={axis} tickLine={false} />
+        <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8, borderColor: "#dce2e7" }} />
+        <ReferenceLine y={limit * 0.7} stroke="#b7791f" strokeDasharray="4 4"
+          label={{ value: "Warning 70%", fontSize: 10, fill: "#b7791f", position: "insideTopLeft" }} />
+        <ReferenceLine y={limit * 0.9} stroke="#c0392b" strokeDasharray="4 4"
+          label={{ value: "Overload 90%", fontSize: 10, fill: "#c0392b", position: "insideTopLeft" }} />
+        <ReferenceLine y={limit} stroke="#c0392b" strokeWidth={2}
+          label={{ value: `Limit ${limit} kg`, fontSize: 10, fill: "#c0392b", position: "insideTopLeft" }} />
+        <Area type="monotone" dataKey="kg" name="Basket weight (kg)" stroke="#278567" fill="#27856722" strokeWidth={2} isAnimationActive={false} />
+      </AreaChart>
     </ResponsiveContainer>
   );
 }

@@ -10,6 +10,7 @@ const NAV: { group: string; items: { href: string; label: string; icon: string }
     group: "Monitoring",
     items: [
       { href: "/app/dashboard", label: "Overview", icon: "▦" },
+      { href: "/app/unit", label: "Live Unit (prototype)", icon: "◉" },
       { href: "/app/map", label: "Live Drain Map", icon: "⌖" },
       { href: "/app/drains", label: "Drain Registry", icon: "☰" },
       { href: "/app/alerts", label: "Alert Centre", icon: "⚑" },

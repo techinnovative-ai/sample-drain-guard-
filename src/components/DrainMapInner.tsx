@@ -53,11 +53,15 @@ export default function DrainMapInner({ drains, height = 420, zoom = 14 }: {
               <br />
               {d.severity === "offline" ? (
                 <em>Condition unknown — last contact {d.lastContact}</em>
+              ) : d.id.startsWith("DG-UNIT") ? (
+                <>Water {d.waterLevelCm} cm · Basket load {d.basketFillPct}% of limit (measured) · {d.lastContact}</>
               ) : (
                 <>Water {d.waterLevelCm} cm · Basket est. {d.basketFillPct}% · {d.lastContact}</>
               )}
               <br />
-              <Link href={`/app/drains/${d.id}`}>Open drain record →</Link>
+              <Link href={d.id.startsWith("DG-UNIT") ? "/app/unit" : `/app/drains/${d.id}`}>
+                {d.id.startsWith("DG-UNIT") ? "Open control centre →" : "Open drain record →"}
+              </Link>
             </div>
           </Popup>
         </Marker>
