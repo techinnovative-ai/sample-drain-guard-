@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --color-forest: #12342b;
+  --color-forest-800: #1a4539;
+  --color-forest-700: #215646;
+  --color-tech: #278567;
+  --color-tech-600: #1f6e55;
+  --color-mist: #e5eef1;
+  --color-neutral-grey: #dce2e7;
+  --color-ink: #16211e;
+
+  --color-ok: #1f8a4c;
+  --color-ok-bg: #e4f4ea;
+  --color-attn: #b7791f;
+  --color-attn-bg: #fdf3df;
+  --color-crit: #c0392b;
+  --color-crit-bg: #fdeae7;
+  --color-offline: #5b6b73;
+  --color-offline-bg: #e8edf0;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-mist);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.leaflet-container {
+  font-family: var(--font-sans);
+  z-index: 0;
+}
+
+.dg-marker {
+  background: transparent;
+  border: none;
+}
+
+::selection {
+  background: #27856733;
+}
